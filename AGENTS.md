@@ -60,8 +60,10 @@ next resume.
 
 All personal data lives in the active profile, never in the repository:
 
-- `RESUME_PROFILE_DIR`, when set, or else `profile/` at the repo root
-  (gitignored). Run `npm run profile` to see the resolved profile and paths.
+- `profile/` at the repo root (gitignored), created automatically at session
+  start. Never ask the user where it should go. `RESUME_PROFILE_DIR` is an
+  advanced override for people who set it themselves. Run `npm run profile`
+  to see the resolved profile and paths.
 - `profile.json` holds the name, contact details, filename prefix, and the
   folders for resume sources (`workspaceDir`) and final PDFs (`outputDir`).
 - The `dataStore` file is the only canonical source for facts, titles, dates,

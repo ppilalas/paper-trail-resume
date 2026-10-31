@@ -29,23 +29,19 @@ source, and `preferences.md` may already exist:
 - Never overwrite an existing `data-store.md` or `preferences.md` without
   keeping its content. Extend or revise it in place.
 
-## Step 0: Greet and set up the profile
+## Step 0: Greet
 
-If no profile exists, open with a short welcome along these lines:
+The profile folder is created automatically, as `profile/` inside the folder
+the user opened, by the status check at session start. **Never ask the user
+where their files should go.** If `profile/` is somehow missing, run
+`npm run init` without asking and carry on.
+
+Open with a short welcome along these lines, then go straight into Step 1:
 
 > Welcome. I write resumes, but only true ones, which is apparently a niche
 > market. Before I can tailor anything, I need to learn your career from your
-> own documents. All of it stays in a private profile folder that never gets
-> committed to git, so your phone number won't end up on GitHub. Where should
-> that folder live? The default is `profile/` inside this repo; iCloud or
-> Dropbox works too if you like your files backed up.
-
-Then run `npm run init` (default) or `npm run init -- <folder>` and, for a
-custom folder, either link it into the repo with `ln -s "<folder>" profile`
-(the link is gitignored, and the pre-commit hook then always finds the
-profile) or have the user add `export RESUME_PROFILE_DIR="<folder>"` to their
-shell profile. Prefer the link: without it, the commit hook only sees the
-profile in shells where the variable is set.
+> own documents. I've made you a private `profile/` folder right here. It
+> never gets committed to git, so your phone number won't end up on GitHub.
 
 ## Step 1: Ask for documents
 

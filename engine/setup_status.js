@@ -16,6 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { profileDir } = require('./profile');
+const { createProfile } = require('./init_profile');
 
 const DOC_EXT = /\.(pdf|docx?|rtf|txt|md|pages|odt|html?)$/i;
 const EXAMPLE_EMAIL = /@example\.(com|org)$/i;
@@ -25,16 +26,20 @@ function check() {
   // `hint` is what the user sees at session start: the prompt to type next.
   const step = (done, label, ask, hint) => steps.push({ done, label, ask, hint });
 
+  // New users never choose a location: the profile is created inside the
+  // folder they opened. RESUME_PROFILE_DIR remains an advanced override.
+  let created = false;
+  if (!process.env.RESUME_PROFILE_DIR) created = createProfile();
+
   let dir;
   try {
     dir = profileDir();
-  } catch {
-    step(false, 'Profile folder exists',
-      'Run `npm run init` to create profile/ (or ask where the user wants it and set RESUME_PROFILE_DIR).',
-      'New here? I write resumes, but only true ones. Type: "Help me set up my resume profile"');
-    return { steps, dir: null };
+  } catch (error) {
+    step(false, 'Profile folder exists', `${error.message} Fix RESUME_PROFILE_DIR or unset it.`,
+      'Your profile folder setting points somewhere empty. Type: "Help me fix my profile folder"');
+    return { steps, dir: null, created };
   }
-  step(true, `Profile folder exists (${dir})`);
+  step(true, `Profile folder exists (${dir})${created ? ', created just now' : ''}`);
 
   const raw = JSON.parse(fs.readFileSync(path.join(dir, 'profile.json'), 'utf8'));
   const onboarding = raw.onboarding || {};
@@ -47,7 +52,7 @@ function check() {
   step(docs.length > 0, `Source documents in intake/ (${docs.length} found)`,
     `Ask the user to add their past resumes and supporting documents to ${intakeDir}. ` +
     'See "Step 1" in docs/ONBOARDING.md for the full list.',
-    'Your intake/ folder is emptier than a recruiter\'s reply rate. Add your old resumes, then type: "I\'ve added my documents"');
+    'New here? I write resumes, but only true ones. Drop your old resumes in profile/intake/ (or into this chat), then type: "I\'ve added my documents"');
   step(Boolean(onboarding.intakeComplete), 'User confirmed every document is added',
     'List the documents found, name what is still missing from the checklist, and ask whether anything else ' +
     'should be added. Set onboarding.intakeComplete to true only when the user says that is everything.',

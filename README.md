@@ -31,7 +31,7 @@ The repository holds only the engine, templates, and docs. Everything
 personal lives in a **profile** folder that is never committed:
 
 ```
-profile/                 gitignored (or anywhere, via RESUME_PROFILE_DIR)
+profile/                 created for you on first launch; gitignored
   profile.json           name, contact details, filename prefix, folders
   data-store.md          your verified career evidence
   preferences.md         your personal editorial rules
@@ -106,9 +106,8 @@ yourself at any time to see the same checklist.
 
 The agent walks you through these steps before it will write anything:
 
-1. **Create your private profile.** It runs `npm run init`, which makes
-   `profile/` (or a folder you choose, such as iCloud or Dropbox, used through
-   `RESUME_PROFILE_DIR`).
+1. **Your private profile appears on its own.** The first session creates
+   `profile/` inside the folder you opened. There's nothing to choose.
 2. **Add your documents to `profile/intake/`.** Required: your past resumes,
    as many versions as you have. Recommended: a LinkedIn profile PDF, cover
    letters, performance reviews, or a brag document. The agent lists what it
@@ -143,7 +142,7 @@ npm run validate -- profile.example/output/Jordan-Avery-Resume-Contoso-Head-of-G
 
 | Command | What it does |
 |---|---|
-| `npm run init` | Create an empty private profile |
+| `npm run init` | Create the private profile by hand (normally automatic) |
 | `npm run status` | Onboarding checklist and the next step |
 | `npm run extract` | Convert intake documents to text for the agent |
 | `npm run new` | Scaffold a resume and brief for one job |
