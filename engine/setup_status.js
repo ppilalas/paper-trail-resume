@@ -51,7 +51,7 @@ function check() {
   step(Boolean(onboarding.intakeComplete), 'User confirmed every document is added',
     'List the documents found, name what is still missing from the checklist, and ask whether anything else ' +
     'should be added. Set onboarding.intakeComplete to true only when the user says that is everything.',
-    'Type: "I\'ve added my documents" (or "That\'s everything" when nothing else is coming)');
+    'Type: "Let\'s add my resumes" to see what to upload, or "That\'s everything" when every document is in');
 
   const missing = ['name'].filter((k) => !raw[k]).concat(['email', 'phone'].filter((k) => !contact[k]));
   const isExample = EXAMPLE_EMAIL.test(contact.email || '');

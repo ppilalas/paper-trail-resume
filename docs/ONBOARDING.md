@@ -9,6 +9,25 @@ reports "Onboarding complete."
 Speak to the user plainly. One step at a time; do not dump this whole file on
 them.
 
+**Always ask for resumes, even if some documents are already there.** If
+`intake/` already holds files when a session starts, say what is there, then
+still run Step 1 in full: show the document list and ask for every past resume
+version the user has. A single document, even a detailed evidence file, never
+counts as a finished intake on its own.
+
+**Build on existing work; never discard it.** A profile may be reset to run
+setup again. Then an earlier evidence file is usually sitting in `intake/` as a
+source, and `preferences.md` may already exist:
+
+- Treat an earlier data store or evidence file as a high-quality source:
+  carry its facts, guardrails, and confirmed wording into the new data store,
+  citing it like any other intake file. Where resumes disagree with it, raise
+  the conflict in Step 4 instead of overriding either one.
+- Treat an existing `preferences.md` as a draft. In Step 5, read it back,
+  confirm each rule, and only ask the interview questions it does not answer.
+- Never overwrite an existing `data-store.md` or `preferences.md` without
+  keeping its content. Extend or revise it in place.
+
 ## Step 0: Greet and set up the profile
 
 If no profile exists, open with a short welcome along these lines:
