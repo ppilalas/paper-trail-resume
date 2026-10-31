@@ -51,14 +51,42 @@ Requirements: Node 18+, Python 3.9+, Google Chrome (or Playwright's Chromium),
 and `pdftoppm` from poppler for page images (`brew install poppler`).
 
 ```bash
-git clone <this repo> editorial-resume && cd editorial-resume
+git clone <repo-url> ~/Developer/editorial-resume   # URL from GitHub's green Code button
+cd ~/Developer/editorial-resume
 npm install                       # also enables the pre-commit hook
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
-Then open the folder with your AI agent (for example, run `claude` in it) and
-say hello. The agent checks `npm run status` and walks you through setup
-before it will write anything:
+## Open it in Claude Code
+
+Open the repository folder itself, not a folder above it, so Claude Code
+loads `CLAUDE.md` and the startup check in `.claude/settings.json`.
+
+**Desktop app:** open the Claude app, switch to the **Code** tab, start a new
+session, and choose `~/Developer/editorial-resume` as the folder.
+
+**Terminal:**
+
+```bash
+cd ~/Developer/editorial-resume && claude
+```
+
+**VS Code:** open the folder (`code ~/Developer/editorial-resume`) and start
+Claude Code from the Claude icon in the sidebar.
+
+The first time, Claude Code asks whether you trust the folder. Say yes, or
+the startup check cannot run. Then send a first message such as:
+
+> Hi, help me set up my resume profile.
+
+Every session starts with `npm run status`. Until setup is finished, the
+agent picks up at the next unfinished step instead of writing a resume. To
+start again later, open the same folder the same way; your progress is saved
+in your profile.
+
+## What setup looks like
+
+The agent walks you through these steps before it will write anything:
 
 1. **Create your private profile.** It runs `npm run init`, which makes
    `profile/` (or a folder you choose, such as iCloud or Dropbox, used through

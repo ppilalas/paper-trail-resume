@@ -24,10 +24,11 @@ function profileDir() {
     if (!fs.existsSync(path.join(dir, 'profile.json'))) {
       throw new Error(`RESUME_PROFILE_DIR has no profile.json: ${dir}`);
     }
-    return dir;
+    return fs.realpathSync(dir);
   }
   const local = path.join(REPO_ROOT, 'profile');
-  if (fs.existsSync(path.join(local, 'profile.json'))) return local;
+  // Resolve a symlinked profile so its relative paths follow the real folder.
+  if (fs.existsSync(path.join(local, 'profile.json'))) return fs.realpathSync(local);
   throw new Error(
     'No profile found. Copy profile.example/ to profile/ (gitignored) and edit profile.json, ' +
     'or set RESUME_PROFILE_DIR to a folder that contains profile.json.'
