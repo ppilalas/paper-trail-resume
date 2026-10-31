@@ -71,18 +71,32 @@ session, and choose `~/Developer/editorial-resume` as the folder.
 cd ~/Developer/editorial-resume && claude
 ```
 
+Or open it with your first message already sent:
+
+```bash
+cd ~/Developer/editorial-resume && claude "Help me set up my resume profile"
+```
+
 **VS Code:** open the folder (`code ~/Developer/editorial-resume`) and start
 Claude Code from the Claude icon in the sidebar.
 
 The first time, Claude Code asks whether you trust the folder. Say yes, or
-the startup check cannot run. Then send a first message such as:
+the startup check cannot run.
 
-> Hi, help me set up my resume profile.
+When a session opens, a one-line message suggests what to type next, based on
+how far setup has gone. For example:
 
-Every session starts with `npm run status`. Until setup is finished, the
-agent picks up at the next unfinished step instead of writing a resume. To
-start again later, open the same folder the same way; your progress is saved
-in your profile.
+| Where you are | Startup message |
+|---|---|
+| Brand new | New here? Type: "Help me set up my resume profile" |
+| Profile created, no documents yet | Resume setup 1/7. Add your past resumes to the intake/ folder in your profile, then type: "I've added my documents" |
+| Data store needs review | Resume setup 5/7. Type: "Let's review my data store" |
+| Setup finished | Resume profile ready. Paste a job description, or type: "Tailor my resume for this job: \<link\>" |
+
+Claude also gets the full checklist, so it picks up at the next unfinished
+step instead of writing a resume. To start again later, open the same folder
+the same way; your progress is saved in your profile. Run `npm run status`
+yourself at any time to see the same checklist.
 
 ## What setup looks like
 
