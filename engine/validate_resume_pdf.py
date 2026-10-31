@@ -47,7 +47,7 @@ FILENAME_RE = re.compile(
     rf"^{re.escape(profile['filename_prefix'])}-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*-\d{{4}}-\d{{2}}-\d{{2}}\.pdf$"
 )
 
-parser = argparse.ArgumentParser(description="Validate an editorial resume PDF.")
+parser = argparse.ArgumentParser(description="Validate a Paper Trail resume PDF.")
 parser.add_argument("pdf", type=Path)
 parser.add_argument("--expect", action="append", default=[], help="Required text; repeat as needed")
 parser.add_argument("--qa-dir", type=Path, help="Write extracted text and rendered page PNGs here")

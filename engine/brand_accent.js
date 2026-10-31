@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Brand accent resolver for the editorial resume system.
+ * Brand accent resolver for Paper Trail.
  *
  * Takes the candidate brand colors found for a target company and returns a
  * legible accent set for the resume. Pure computation - it does no network

@@ -13,7 +13,7 @@ const { REPO_ROOT } = require('./profile');
 
 const target = path.resolve(process.argv[2] || path.join(REPO_ROOT, 'profile'));
 if (fs.existsSync(path.join(target, 'profile.json'))) {
-  console.error(`A profile already exists at ${target}. Nothing was changed.`);
+  console.error(`A profile already lives at ${target}. Not overwriting your whole career; nothing was changed.`);
   process.exit(1);
 }
 
@@ -38,6 +38,6 @@ const profile = {
 fs.writeFileSync(path.join(target, 'profile.json'), JSON.stringify(profile, null, 2) + '\n');
 fs.copyFileSync(path.join(REPO_ROOT, 'templates', 'INTAKE-README.md'), path.join(target, 'intake', 'README.md'));
 
-console.log(`Created ${target}`);
+console.log(`Profile created at ${target}. It's empty and judging you a little.`);
 if (target !== path.join(REPO_ROOT, 'profile')) console.log(`Now run: export RESUME_PROFILE_DIR="${target}"`);
-console.log(`Next: add your resumes and documents to ${path.join(target, 'intake')} (see intake/README.md).`);
+console.log(`Next: feed it your old resumes in ${path.join(target, 'intake')} (intake/README.md has the shopping list).`);

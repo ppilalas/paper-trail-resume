@@ -1,5 +1,5 @@
 /**
- * Layout QA gate for the editorial resume system.
+ * Layout QA gate for Paper Trail.
  *
  * Runs inside the rendering browser after fonts are ready and print media is
  * emulated. Catches the failures a page-count check cannot see: content that

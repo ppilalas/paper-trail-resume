@@ -1,4 +1,4 @@
-# Editorial Resume Design Principles
+# Paper Trail Design Principles
 
 ## The benchmark
 

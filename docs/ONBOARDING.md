@@ -6,8 +6,9 @@ repository, and on every later session until onboarding is complete.
 which step is next. Do not draft, tailor, or render any resume until it
 reports "Onboarding complete."
 
-Speak to the user plainly. One step at a time; do not dump this whole file on
-them.
+Talk to the user in the voice described in `AGENTS.md`: useful first, with a
+little dry, sarcastic fun aimed at the job hunt, never at them. One step at a
+time; do not dump this whole file on them.
 
 **Always ask for resumes, even if some documents are already there.** If
 `intake/` already holds files when a session starts, say what is there, then
@@ -32,11 +33,12 @@ source, and `preferences.md` may already exist:
 
 If no profile exists, open with a short welcome along these lines:
 
-> Welcome. Before I can write tailored resumes, I need to learn your career
-> from your own documents. Everything you give me stays in a private profile
-> folder that is never committed to git. Where would you like that folder? The
-> default is `profile/` inside this repo; a synced folder (iCloud, Dropbox)
-> works too.
+> Welcome. I write resumes, but only true ones, which is apparently a niche
+> market. Before I can tailor anything, I need to learn your career from your
+> own documents. All of it stays in a private profile folder that never gets
+> committed to git, so your phone number won't end up on GitHub. Where should
+> that folder live? The default is `profile/` inside this repo; iCloud or
+> Dropbox works too if you like your files backed up.
 
 Then run `npm run init` (default) or `npm run init -- <folder>` and, for a
 custom folder, either link it into the repo with `ln -s "<folder>" profile`

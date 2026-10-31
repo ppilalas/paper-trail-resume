@@ -68,7 +68,7 @@ let profile = null;
 try {
   profile = loadProfile();
 } catch {
-  console.log('leak-check: no local profile found, so there are no personal terms to scan for.');
+  console.log('leak-check: no local profile, so there are no secrets to guard. Lucky you.');
 }
 
 const patterns = profile ? denyPatterns(profile) : [];
@@ -94,9 +94,9 @@ for (const { file, read } of candidateFiles(mode)) {
 }
 
 if (findings.length) {
-  console.error('leak-check: personal data found. Nothing was committed.\n');
+  console.error('leak-check: nope. Your personal details tried to sneak into the repo. Nothing was committed.\n');
   findings.forEach((finding) => console.error(`  ${finding}`));
-  console.error('\nMove personal content into your profile folder, or replace it with example data.');
+  console.error('\nMove it into your profile folder, where secrets belong, or swap in example data.');
   process.exit(1);
 }
-console.log(`leak-check: clean (${patterns.length} personal patterns checked).`);
+console.log(`leak-check: clean. Nobody gets your phone number today (${patterns.length} personal patterns checked).`);

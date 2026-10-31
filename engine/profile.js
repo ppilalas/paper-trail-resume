@@ -1,5 +1,5 @@
 /**
- * Profile loader for the editorial resume system.
+ * Profile loader for Paper Trail.
  *
  * Everything personal (name, contact details, evidence, preferences, and the
  * folders where resumes are written) lives in a profile directory that is
