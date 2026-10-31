@@ -1,0 +1,13 @@
+# Your personal profile, resumes, briefs, and PDFs. Never commit these.
+/profile
+
+node_modules/
+.venv/
+__pycache__/
+.DS_Store
+qa/
+
+# Output from trying the example profile
+profile.example/resumes/
+profile.example/output/
+profile.example/intake/.text/

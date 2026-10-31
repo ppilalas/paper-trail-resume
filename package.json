@@ -1,0 +1,25 @@
+{
+  "name": "editorial-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A designed, two-page HTML-to-PDF resume system with layout QA, brand-accent resolution, and a private profile kept out of git.",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "git config core.hooksPath .githooks",
+    "init": "node engine/init_profile.js",
+    "status": "node engine/setup_status.js",
+    "extract": "sh engine/py.sh engine/extract_intake.py",
+    "new": "node engine/new_resume_project.js",
+    "render": "node engine/render_resume_pdf.js",
+    "validate": "sh engine/py.sh engine/validate_resume_pdf.py",
+    "accent": "node engine/brand_accent.js",
+    "profile": "node engine/profile.js",
+    "leak-check": "node engine/leak_check.js --all"
+  },
+  "dependencies": {
+    "playwright": "^1.48.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

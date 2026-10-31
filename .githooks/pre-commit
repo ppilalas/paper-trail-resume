@@ -1,0 +1,7 @@
+#!/bin/sh
+# Blocks commits that contain personal data from your local profile.
+# Enabled by `npm install` (prepare script) or `git config core.hooksPath .githooks`.
+node engine/leak_check.js --staged || exit 1
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --staged --no-banner --redact || exit 1
+fi

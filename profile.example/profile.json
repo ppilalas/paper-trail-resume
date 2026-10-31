@@ -1,0 +1,27 @@
+{
+  "name": "Jordan Avery",
+  "filenamePrefix": "Jordan-Avery-Resume",
+  "contact": {
+    "location": "Denver, CO",
+    "phone": "(555) 010-0142",
+    "email": "jordan.avery@example.com",
+    "linkedin": "linkedin.com/in/example-jordan-avery",
+    "portfolio": "example.com/work"
+  },
+  "requiredText": [
+    "MBA, Marketing"
+  ],
+  "minLinks": 4,
+  "dataStore": "data-store.md",
+  "preferences": "preferences.md",
+  "workspaceDir": "resumes",
+  "outputDir": "output",
+  "leakGuard": {
+    "terms": []
+  },
+  "onboarding": {
+    "intakeComplete": true,
+    "dataStoreReviewed": true,
+    "preferencesReviewed": true
+  }
+}

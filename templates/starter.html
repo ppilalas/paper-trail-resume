@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{NAME}} - {{ROLE}}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap');
+
+    @page { size: Letter; margin: 0; }
+
+    :root {
+      --ink: #17233a;
+      --body: #344153;
+      --muted: #677386;
+      --paper: #fbfaf6;
+      --accent: #2f6f9f;
+      --accent-soft: #d7e6f0;
+      --line: #c9d1d8;
+      --dark: #17233a;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "Plus Jakarta Sans", Avenir, "Avenir Next", Helvetica, Arial, sans-serif;
+      --condensed: "Azeret Mono", "SFMono-Regular", Consolas, monospace;
+      --section-rail: 1.24in;
+      --section-gutter: 0.28in;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #d8dde2;
+      color: var(--body);
+      font-family: var(--sans);
+      font-size: 9.25pt;
+      line-height: 1.31;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto 24px;
+      padding: 0.41in 0.58in 0.44in;
+      overflow: hidden;
+      background: var(--paper);
+      break-after: page;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      margin-bottom: 0;
+      break-after: auto;
+      page-break-after: auto;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0.12in;
+      background: var(--accent);
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      color: var(--accent);
+      font-family: var(--condensed);
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 1.45px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 2.70in;
+      gap: 0.3in;
+      align-items: end;
+      padding-bottom: 0.14in;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 34pt;
+      line-height: 0.92;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    h1 span { display: block; }
+
+    .contact {
+      display: grid;
+      gap: 5px;
+      align-self: stretch;
+      align-content: end;
+      padding-left: 0.18in;
+      border-left: 3px solid var(--accent-soft);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 8.35pt;
+      line-height: 1.2;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 0.18in minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .contact-icon {
+      width: 13px;
+      height: 13px;
+      color: var(--accent);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-row > span,
+    .contact-row > a {
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: var(--section-rail) 1fr;
+      gap: var(--section-gutter);
+      padding: 0.16in 0 0.14in;
+    }
+
+    .section-label {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 10.5pt;
+      line-height: 1;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .section-label::after {
+      content: "";
+      display: block;
+      width: 0.42in;
+      height: 3px;
+      margin-top: 8px;
+      background: var(--accent);
+    }
+
+    .profile p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 10.15pt;
+      line-height: 1.38;
+    }
+
+    .profile strong { color: var(--ink); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.24in;
+      margin: 0.12in 0 0.24in calc(var(--section-rail) + var(--section-gutter));
+    }
+
+    .metric {
+      padding: 7px 12px 9px;
+      background: #edf2f5;
+      border-top: 4px solid var(--accent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 16pt;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 7.35pt;
+      letter-spacing: 0.55px;
+      text-transform: uppercase;
+    }
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: var(--section-rail) 1fr;
+      gap: var(--section-gutter);
+      padding: 0 0 0.16in;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 0.20in;
+    }
+
+    .cap {
+      position: relative;
+      padding-top: 6px;
+      border-top: 1px solid var(--accent-soft);
+    }
+
+    .cap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 0.24in;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .cap b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 8.5pt;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+    }
+
+    .cap span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.22;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: var(--section-rail) 1fr;
+      gap: var(--section-gutter);
+      padding-top: 0.28in;
+    }
+
+    .roles { min-width: 0; }
+
+    .role {
+      position: relative;
+      padding-left: 0.22in;
+      break-inside: avoid;
+    }
+
+    .role + .role { margin-top: 0.12in; }
+
+    .role::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 7px;
+      height: 7px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background: var(--paper);
+    }
+
+    .role::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 12px;
+      bottom: -0.17in;
+      width: 1px;
+      background: var(--accent-soft);
+    }
+
+    .role:last-child::after { display: none; }
+
+    .role-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.15in;
+      align-items: baseline;
+    }
+
+    .role h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 12pt;
+      line-height: 1.05;
+    }
+
+    .dates {
+      color: var(--muted);
+      font-family: var(--condensed);
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.35px;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .company {
+      margin: 2px 0 1px;
+      color: var(--accent);
+      font-family: var(--condensed);
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .descriptor {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 7.8pt;
+      font-style: italic;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 0.17in;
+    }
+
+    li {
+      margin: 0 0 2px;
+      padding-left: 2px;
+    }
+
+    li::marker { color: var(--accent); }
+    li strong { color: var(--ink); }
+
+    .folio {
+      position: absolute;
+      right: 0.58in;
+      bottom: 0.18in;
+      color: var(--muted);
+      font-family: var(--condensed);
+      font-size: 7pt;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+    }
+
+    .continuation-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 0.12in;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .continuation-header h2 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 19pt;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+    }
+
+    .continuation-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 7.7pt;
+    }
+
+    .page-two-experience {
+      display: grid;
+      grid-template-columns: var(--section-rail) 1fr;
+      gap: var(--section-gutter);
+      padding: 0.22in 0 0.24in;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-two-experience .role + .role { margin-top: 0.13in; }
+
+    .supporting {
+      display: grid;
+      grid-template-columns: var(--section-rail) 1fr;
+      gap: var(--section-gutter);
+      padding-top: 0.25in;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1.16fr 0.84fr;
+      gap: 0.25in;
+    }
+
+    .mini-role {
+      break-inside: avoid;
+    }
+
+    .mini-role + .mini-role { margin-top: 0.12in; }
+
+    .mini-role h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 10.2pt;
+      line-height: 1.05;
+    }
+
+    .mini-role .meta {
+      margin: 2px 0 4px;
+      color: var(--accent);
+      font-family: var(--condensed);
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .mini-role ul { font-size: 8.4pt; line-height: 1.28; }
+
+    .side-card {
+      padding: 0.13in 0.15in;
+      background: #edf2f5;
+      border-top: 4px solid var(--accent);
+    }
+
+    .side-card + .side-card { margin-top: 0.18in; }
+
+    .side-card h3 {
+      margin: 0 0 7px;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 9.2pt;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .skill-group + .skill-group { margin-top: 7px; }
+
+    .skill-group b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 7.8pt;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+    }
+
+    .skill-group span {
+      display: block;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.25;
+    }
+
+    .degree + .degree { margin-top: 8px; }
+
+    .degree b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 8.5pt;
+    }
+
+    .degree span {
+      color: var(--muted);
+      font-size: 8pt;
+    }
+
+    @media screen {
+      body { padding: 24px 0; }
+      .page { box-shadow: 0 10px 35px rgba(23, 32, 29, 0.16); }
+    }
+
+    @media print {
+      body { background: transparent; }
+      .page { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Starter template. {{TOKENS}} are filled from your profile.json by
+    `npm run new`. Everything else is sample copy for a fictional candidate:
+    replace it with verified evidence from your own data store.
+  -->
+  <main aria-label="{{NAME}} resume">
+    <section class="page" aria-labelledby="resume-title">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">{{ROLE}}</p>
+          <h1 id="resume-title"><span>{{NAME_FIRST}}</span><span>{{NAME_REST}}.</span></h1>
+        </div>
+        <address class="contact">
+          <div class="contact-row"><svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span><span class="visually-hidden">Location: </span>{{LOCATION}}</span></div>
+          <div class="contact-row"><svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"/></svg><a href="{{PHONE_HREF}}"><span class="visually-hidden">Phone: </span>{{PHONE}}</a></div>
+          <div class="contact-row"><svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:{{EMAIL}}"><span class="visually-hidden">Email: </span>{{EMAIL}}</a></div>
+          <div class="contact-row"><svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v6M8 8h.01M12 17v-6M12 14a3 3 0 0 1 6 0v3"/></svg><a href="{{LINKEDIN_HREF}}"><span class="visually-hidden">LinkedIn: </span>{{LINKEDIN}}</a></div>
+          <div class="contact-row"><svg class="contact-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg><a href="{{PORTFOLIO_HREF}}"><span class="visually-hidden">Work samples: </span>{{PORTFOLIO}}</a></div>
+        </address>
+      </header>
+
+      <section class="profile" aria-labelledby="profile-label">
+        <h2 class="section-label" id="profile-label">Professional Profile.</h2>
+        <p>Growth gets easier once marketing and Sales agree on what a good account looks like. Across B2B SaaS, logistics, and health tech, my work turns that agreement into programs, CRM rules, and reporting that leaders actually use to decide where the next dollar goes.</p>
+      </section>
+
+      <section class="metrics" aria-label="Selected commercial results">
+        <div class="metric"><strong>$1.2M</strong><span>Sourced pipeline / Contoso</span></div>
+        <div class="metric"><strong>3x</strong><span>Demo requests / Fabrikam</span></div>
+        <div class="metric"><strong>18%</strong><span>Lower CAC / Fabrikam</span></div>
+      </section>
+
+      <section class="capabilities" aria-labelledby="capabilities-label">
+        <h2 class="section-label" id="capabilities-label">Core Capabilities.</h2>
+        <div class="cap-grid">
+          <div class="cap"><b>Integrated Programs</b><span>ABM, lifecycle, paid, content, events and nurture</span></div>
+          <div class="cap"><b>Account Strategy</b><span>ICP definition, tiering, buying committees and plays</span></div>
+          <div class="cap"><b>Revenue Operations</b><span>CRM design, scoring, attribution and dashboards</span></div>
+          <div class="cap"><b>Applied AI</b><span>Research, content workflows and campaign diagnostics</span></div>
+        </div>
+      </section>
+
+      <section class="experience" aria-labelledby="experience-label">
+        <h2 class="section-label" id="experience-label">Professional Experience.</h2>
+        <div class="roles">
+          <article class="role">
+            <div class="role-head"><h3>Head of Demand Generation</h3><span class="dates">Mar 2023 - Present</span></div>
+            <p class="company">Contoso Health / Remote</p>
+            <p class="descriptor">Series B health-tech platform selling to hospital operations teams.</p>
+            <ul>
+              <li>Rebuilt the demand program around three target-account tiers and generated <strong>$1.2M in sourced pipeline</strong> in the first two quarters.</li>
+              <li>Introduced shared MQL and SQL definitions with Sales, cutting lead-to-meeting time from nine days to four.</li>
+              <li>Launched an AI-assisted research workflow that gave SDRs account briefs before every first call.</li>
+              <li>Hired and coached two marketers who now own paid media and lifecycle on an <strong>$600K annual budget</strong>.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-head"><h3>Senior Growth Marketing Manager</h3><span class="dates">Jan 2020 - Feb 2023</span></div>
+            <p class="company">Fabrikam Freight / Denver, CO</p>
+            <p class="descriptor">Mid-market logistics software company serving regional carriers.</p>
+            <ul>
+              <li>Redesigned the self-serve trial and pricing pages, <strong>tripling demo requests</strong> within a year.</li>
+              <li>Shifted paid budget toward high-intent search and partner channels, reducing blended <strong>CAC 18%</strong>.</li>
+              <li>Stood up attribution reporting in Salesforce and Looker Studio that leadership used for quarterly planning.</li>
+              <li>Built a partner co-marketing program with three carrier associations that became a steady source of qualified trials.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-head"><h3>Marketing Manager</h3><span class="dates">Jun 2017 - Dec 2019</span></div>
+            <p class="company">Northwind Traders / Boulder, CO</p>
+            <p class="descriptor">Wholesale distributor with B2B and direct-to-consumer channels.</p>
+            <ul>
+              <li>Grew organic traffic <strong>60% year over year</strong> through a rebuilt content hub and technical SEO fixes.</li>
+              <li>Implemented HubSpot lifecycle stages, scoring, and nurture streams from the ground up.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <div class="folio">{{NAME}} / 01</div>
+    </section>
+
+    <section class="page" aria-label="Resume page two">
+      <header class="continuation-header">
+        <h2>{{NAME}}.</h2>
+        <p>{{ROLE}}</p>
+      </header>
+
+      <section class="page-two-experience" aria-labelledby="experience-continued-label">
+        <h2 class="section-label" id="experience-continued-label">Professional Experience, Continued.</h2>
+        <div class="roles">
+          <article class="role">
+            <div class="role-head"><h3>Digital Marketing Specialist</h3><span class="dates">May 2014 - May 2017</span></div>
+            <p class="company">Tailspin Toys / Fort Collins, CO</p>
+            <p class="descriptor">Consumer products brand selling through retail and e-commerce.</p>
+            <ul>
+              <li>Managed a <strong>$90K annual paid-search budget</strong> and raised conversion rate from 1.1% to 2.4%.</li>
+              <li>Ran product-page tests that lifted add-to-cart rate <strong>35%</strong> on the top ten SKUs.</li>
+              <li>Built the first weekly performance dashboard shared with sales and retail partners.</li>
+              <li>Coordinated two site migrations without losing organic rankings on priority categories.</li>
+              <li>Produced launch campaigns for six new product lines across email, social, and retail partners.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-head"><h3>Marketing Coordinator</h3><span class="dates">Aug 2012 - Apr 2014</span></div>
+            <p class="company">Adventure Works / Fort Collins, CO</p>
+            <p class="descriptor">Outdoor-equipment retailer with a regional store network.</p>
+            <ul>
+              <li>Launched the company's first email program, reaching <strong>40K subscribers</strong> within eighteen months.</li>
+              <li>Organized in-store events that became the top source of new loyalty-program sign-ups.</li>
+              <li>Wrote and scheduled social content across four channels for twelve store locations.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="supporting" aria-labelledby="supporting-label">
+        <h2 class="section-label" id="supporting-label">Additional Experience.</h2>
+        <div class="support-grid">
+          <div>
+            <article class="mini-role">
+              <h3>Marketing Consultant</h3>
+              <p class="meta">Independent / 2019 - 2022 / Part-time, contract</p>
+              <ul>
+                <li>Set up CRM, lead routing, and reporting for three early-stage B2B startups.</li>
+                <li>Planned and produced a webinar series that became one client's largest lead source.</li>
+                <li>Audited paid and organic programs and delivered prioritized ninety-day plans.</li>
+              </ul>
+            </article>
+          </div>
+
+          <aside aria-label="Skills and education">
+            <section class="side-card">
+              <h3>Skills &amp; tools</h3>
+              <div class="skill-group"><b>CRM &amp; automation</b><span>Salesforce, HubSpot, Marketo, Outreach</span></div>
+              <div class="skill-group"><b>Analytics &amp; advertising</b><span>GA4, Looker Studio, Google Ads, LinkedIn Ads</span></div>
+              <div class="skill-group"><b>AI &amp; workflow</b><span>LLM APIs, Zapier, n8n, prompt design</span></div>
+              <div class="skill-group"><b>Web &amp; content</b><span>WordPress, Webflow, Search Console, SEMrush</span></div>
+            </section>
+
+            <section class="side-card">
+              <h3>Education</h3>
+              <div class="degree"><b>MBA, Marketing</b><span>Example State University</span></div>
+              <div class="degree"><b>B.A., Communications</b><span>Example College</span></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+      <div class="folio">{{NAME}} / 02</div>
+    </section>
+  </main>
+</body>
+</html>
