@@ -1,4 +1,4 @@
-# Paper Trail Design Principles
+# Paper Trail Resume Design Principles
 
 ## The benchmark
 

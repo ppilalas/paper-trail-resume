@@ -1,4 +1,4 @@
-# Agent instructions for Paper Trail
+# Agent instructions for Paper Trail Resume
 
 These instructions apply to every resume task in this repository, for any AI
 coding agent (Claude Code, Codex, or similar). "The candidate" means the

@@ -79,7 +79,7 @@ function check() {
 
 const { steps } = check();
 const next = steps.find((s) => !s.done);
-const lines = ['Paper Trail onboarding status:'];
+const lines = ['Paper Trail Resume onboarding status:'];
 steps.forEach((s) => lines.push(`  [${s.done ? 'x' : ' '}] ${s.label}`));
 if (next) {
   lines.push('', 'ONBOARDING INCOMPLETE. Do not start resume work yet.');

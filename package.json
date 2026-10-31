@@ -1,5 +1,5 @@
 {
-  "name": "paper-trail",
+  "name": "paper-trail-resume",
   "version": "1.0.0",
   "private": true,
   "description": "A designed, two-page HTML-to-PDF resume system with layout QA, brand-accent resolution, and a private profile kept out of git.",

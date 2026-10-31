@@ -1,4 +1,4 @@
-# Paper Trail
+# Paper Trail Resume
 
 *Resumes with receipts.* Every line traces back to something you actually
 did, and the result is two pages an applicant tracking system can read and a
@@ -55,8 +55,8 @@ Requirements: Node 18+, Python 3.9+, Google Chrome (or Playwright's Chromium),
 and `pdftoppm` from poppler for page images (`brew install poppler`).
 
 ```bash
-git clone <repo-url> ~/Developer/paper-trail   # URL from GitHub's green Code button
-cd ~/Developer/paper-trail
+git clone <repo-url> ~/Developer/paper-trail-resume   # URL from GitHub's green Code button
+cd ~/Developer/paper-trail-resume
 npm install                       # also enables the pre-commit hook
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
@@ -67,21 +67,21 @@ Open the repository folder itself, not a folder above it, so Claude Code
 loads `CLAUDE.md` and the startup check in `.claude/settings.json`.
 
 **Desktop app:** open the Claude app, switch to the **Code** tab, start a new
-session, and choose `~/Developer/paper-trail` as the folder.
+session, and choose `~/Developer/paper-trail-resume` as the folder.
 
 **Terminal:**
 
 ```bash
-cd ~/Developer/paper-trail && claude
+cd ~/Developer/paper-trail-resume && claude
 ```
 
 Or open it with your first message already sent:
 
 ```bash
-cd ~/Developer/paper-trail && claude "Help me set up my resume profile"
+cd ~/Developer/paper-trail-resume && claude "Help me set up my resume profile"
 ```
 
-**VS Code:** open the folder (`code ~/Developer/paper-trail`) and start
+**VS Code:** open the folder (`code ~/Developer/paper-trail-resume`) and start
 Claude Code from the Claude icon in the sidebar.
 
 The first time, Claude Code asks whether you trust the folder. Say yes, or
