@@ -1,5 +1,7 @@
 # Paper Trail Resume
 
+![Paper Trail Resume: a dotted trail from your old resumes to the job, with a receipt mascot that only writes true ones](docs/images/paper-trail-resume-card.png)
+
 *Resumes with receipts.* Every line traces back to something you actually
 did, and the result is two pages an applicant tracking system can read and a
 human might even enjoy.
